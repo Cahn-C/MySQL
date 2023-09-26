@@ -10,6 +10,7 @@ order by 4 desc;
 
 
 -- Traffic Conversion Rates
+-- Since the conversion rate is below 4%, I will need to monitor the impact of bid reductions along with analyzing the performance trending by device type in order to refine bidding stategy
 select count(distinct ws.website_session_id) as sessions, 
        count(distinct o.order_id) as orders,
        count(distinct o.order_id) / count(distinct ws.website_session_id) as conversion_rate
