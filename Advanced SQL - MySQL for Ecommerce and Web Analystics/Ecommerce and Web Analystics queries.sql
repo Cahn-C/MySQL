@@ -17,6 +17,6 @@ from website_sessions ws
 left join orders o
 on ws.website_session_id = o.website_session_id
 where ws.created_at < '2012-04-14'
-and utm_source = 'gsearch'
-and utm_campaign = 'nonbrand'
-and http_referer = 'https://www.gsearch.com';
+and ws.utm_source = 'gsearch'
+and ws.utm_campaign = 'nonbrand'
+and ws.http_referer = 'https://www.gsearch.com';
