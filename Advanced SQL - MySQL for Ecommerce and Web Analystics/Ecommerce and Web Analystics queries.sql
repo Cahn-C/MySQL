@@ -11,7 +11,7 @@ order by 4 desc;
 
 -- Traffic Conversion Rates
 select count(distinct ws.website_session_id) as sessions, 
-	   count(distinct o.order_id) as orders,
+       count(distinct o.order_id) as orders,
        count(distinct o.order_id) / count(distinct ws.website_session_id) as conversion_rate
 from website_sessions ws
 left join orders o
