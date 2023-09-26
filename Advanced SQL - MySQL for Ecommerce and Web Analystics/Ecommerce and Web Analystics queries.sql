@@ -34,3 +34,19 @@ and ws.utm_source = 'gsearch'
 and utm_campaign = 'nonbrand'
 group by week(created_at)
 order by 1;
+
+
+-- Traffic Source Bid Optimization
+-- Since desktop performs way better than mobile, Tom has decided to increase the company's bids on desktop
+select device_type,
+	count(distinct ws.website_session_id) as sessions, 
+	count(distinct o.order_id) as orders,
+       count(distinct o.order_id) / count(distinct ws.website_session_id) as converstion_rate
+from website_sessions ws
+left join orders o
+on ws.website_session_id = o.website_session_id
+where ws.created_at < '2012-05-11'
+and utm_source = 'gsearch'
+and utm_campaign = 'nonbrand'
+group by device_type
+order by 2;
