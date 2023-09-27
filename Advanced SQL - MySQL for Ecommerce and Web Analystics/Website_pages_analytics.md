@@ -10,7 +10,7 @@ group by pageview_url
 order by 2 desc;
 ```
 Results:
-<img width="170" alt="query 1 results" src="https://github.com/Cahn-C/MySQL/assets/72324462/e803561a-a9c6-4bac-9377-63b6f927d663">
+<img width="470" height="300" alt="query 1 results" src="https://github.com/Cahn-C/MySQL/assets/72324462/e803561a-a9c6-4bac-9377-63b6f927d663">
 
 
 ## Identifying Top Entry Pages
