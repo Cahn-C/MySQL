@@ -1,6 +1,7 @@
 # Website Analysis
 
 ## Identifying Top Website Pages
+Morgan wants to find to better about the sit by pulling the most-viwed website pages, tanks by session volumn
 ```sql
 select pageview_url, count(distinct website_session_id) as sessions 
 from website_pageviews
