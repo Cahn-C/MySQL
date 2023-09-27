@@ -29,5 +29,5 @@ group by wp.pageview_url
 order by 2 desc;
 ```
 Results:
-![alt text](<img width="219" alt="image" src="https://github.com/Cahn-C/MySQL/assets/72324462/35e4e77c-238a-4c36-a399-e8ac916939c6">)
+![plot](<img width="219" alt="image" src="https://github.com/Cahn-C/MySQL/assets/72324462/35e4e77c-238a-4c36-a399-e8ac916939c6">)
 
