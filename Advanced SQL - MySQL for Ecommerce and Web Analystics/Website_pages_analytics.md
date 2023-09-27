@@ -9,7 +9,7 @@ where created_at < '2012-06-09'
 group by pageview_url
 order by 2 desc;
 ```
-Results:
+Results:<br>
 <img width="470" height="300" alt="query 1 results" src="https://github.com/Cahn-C/MySQL/assets/72324462/e803561a-a9c6-4bac-9377-63b6f927d663">
 
 
@@ -30,7 +30,7 @@ where wp.created_at < '2012-06-09'
 group by wp.pageview_url
 order by 2 desc;
 ```
-Results:
+Results:<br>
 <img width="450" height="140" alt="query 2 results" src="https://github.com/Cahn-C/MySQL/assets/72324462/6ea8a42c-0cd8-41a4-b1cd-9c912d32ef6e">
 
 
