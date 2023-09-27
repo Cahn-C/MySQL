@@ -31,6 +31,6 @@ group by wp.pageview_url
 order by 2 desc;
 ```
 Results:
-<img width="220" height="140" alt="query 2 results" src="https://github.com/Cahn-C/MySQL/assets/72324462/6ea8a42c-0cd8-41a4-b1cd-9c912d32ef6e">
+<img width="320" height="140" alt="query 2 results" src="https://github.com/Cahn-C/MySQL/assets/72324462/6ea8a42c-0cd8-41a4-b1cd-9c912d32ef6e">
 
 
