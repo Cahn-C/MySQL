@@ -20,6 +20,23 @@ order by 4 desc;
 <br><br>
 ![image](https://github.com/Cahn-C/MySQL/assets/72324462/8b5b3e05-fc73-41b4-bc69-681525e727e4)
 
+```sql
+-- Traffic Conversion Rates
+/* Since the conversion rate is below 4%, I will need to monitor the impact of bid reductions along with analyzing the performance
+   trending by device type in order to refine bidding stategy
+*/
+select count(distinct ws.website_session_id) as sessions, 
+       count(distinct o.order_id) as orders,
+       count(distinct o.order_id) / count(distinct ws.website_session_id) as conversion_rate
+from website_sessions ws
+left join orders o
+on ws.website_session_id = o.website_session_id
+where ws.created_at < '2012-04-14'
+and ws.utm_source = 'gsearch'
+and ws.utm_campaign = 'nonbrand'
+and ws.http_referer = 'https://www.gsearch.com';
+```
+
 <br><br>
 ![image](https://github.com/Cahn-C/MySQL/assets/72324462/fd9219a0-7136-4087-9d4f-be06d8abc54e)
 
