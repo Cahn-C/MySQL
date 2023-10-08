@@ -2,8 +2,11 @@
 
 ![image](https://github.com/Cahn-C/MySQL/assets/72324462/f1d327c2-bb50-468f-a080-d4217d3c079e)
 
+<br>
+Finding top Traffic Sources
+<hr>
+
 ```sql
--- Finding top Traffic Sources
 /* "gsearch nonbrand" has the largest session volume, we will need to focus more on this campaign to gain more insight for
    potential optimization opportunities
 */
@@ -20,8 +23,11 @@ order by 4 desc;
 <br><br>
 ![image](https://github.com/Cahn-C/MySQL/assets/72324462/8b5b3e05-fc73-41b4-bc69-681525e727e4)
 
+<br>
+Traffic Conversion Rates
+<hr>
+
 ```sql
--- Traffic Conversion Rates
 /* Since the conversion rate is below 4%, I will need to monitor the impact of bid reductions along with
    analyzing the performance trending by device type in order to refine bidding stategy
 */
