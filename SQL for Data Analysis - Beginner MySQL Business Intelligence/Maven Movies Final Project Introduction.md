@@ -16,5 +16,5 @@ Dear Maven Movies Management, <br>
 I am excited about the potential acquisition and learning more about your rental business. Please bear with me as I am new to the industry. I have a number of questions for
 you. Asssuming you can answer them all, and that there are no major surprises, we should be able to move forward with the purchase. <br>
 
-Best,
+Best, <br>
 Martin Moneybags
