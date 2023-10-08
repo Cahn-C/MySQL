@@ -22,8 +22,8 @@ order by 4 desc;
 
 ```sql
 -- Traffic Conversion Rates
-/* Since the conversion rate is below 4%, I will need to monitor the impact of bid reductions along with analyzing the performance
-   trending by device type in order to refine bidding stategy
+/* Since the conversion rate is below 4%, I will need to monitor the impact of bid reductions along with
+   analyzing the performance trending by device type in order to refine bidding stategy
 */
 select count(distinct ws.website_session_id) as sessions, 
        count(distinct o.order_id) as orders,
