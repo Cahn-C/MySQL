@@ -78,6 +78,27 @@ order by 2;
 <br><br>
 ![image](https://github.com/Cahn-C/MySQL/assets/72324462/c672a516-d351-4d31-867a-502a7405d3ba)
 
+<br>
+Traffic Source Segment Trending
+****
+```sql
+/* 
+   After the bid change made after May 13th 2012, there was a major increase on May 20th 2012 for desktop users, while mobile
+   seems to be a little flat.
+*/
+with cte as (
+	select min(date(created_at)) as start_of_week,
+	       count(distinct case when device_type = 'desktop' then website_session_id else null end) as dektop_sessions,
+	       count(distinct case when device_type = 'mobile' then website_session_id else null end) as mobile_sessions
+	from website_sessions
+	where created_at < '2012-06-09'
+	and utm_source = 'gsearch'
+	and utm_campaign = 'nonbrand'
+	group by week(created_at)
+)
+select * from cte where start_of_week >= '2012-04-15';
+```
+
 
 
 
