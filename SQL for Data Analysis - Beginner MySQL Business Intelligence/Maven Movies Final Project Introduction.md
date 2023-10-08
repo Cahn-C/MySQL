@@ -6,12 +6,14 @@
 My business partner and I were recently approached by another local business owner who is interested in purchasing Maven Movies. He primarily owns restaurants and bars,
 so he has lots of questions for me about my business and the rental business in general. His off seems very generous, so I'm going to entertain his questions.
 
+<br>
 
 ### The Objective
 <hr>
 
 Leverage my SQL skills to extract and analyze data from various tables in the Maven Movies database to answer my potential Acquirer's questions.
 
+<br>
 
 ### The Letter
 <hr>
