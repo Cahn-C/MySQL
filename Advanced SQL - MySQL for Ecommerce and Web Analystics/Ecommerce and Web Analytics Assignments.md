@@ -80,7 +80,7 @@ order by 2;
 
 <br>
 Traffic Source Segment Trending 
-____
+***
 
 ```sql
 /* 
