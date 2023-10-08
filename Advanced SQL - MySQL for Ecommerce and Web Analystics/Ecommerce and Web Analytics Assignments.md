@@ -81,9 +81,11 @@ order by 2;
 <br>
 Traffic Source Segment Trending
 ****
+
 ```sql
 /* 
-   After the bid change made after May 13th 2012, there was a major increase on May 20th 2012 for desktop users, while mobile
+   After the bid change made after May 13th 2012, there was a major increase on May 20th 2012 for desktop users, while 
+   mobile
    seems to be a little flat.
 */
 with cte as (
