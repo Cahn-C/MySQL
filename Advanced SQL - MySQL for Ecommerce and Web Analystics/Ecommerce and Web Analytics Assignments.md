@@ -39,6 +39,21 @@ and ws.http_referer = 'https://www.gsearch.com';
 
 <br><br>
 ![image](https://github.com/Cahn-C/MySQL/assets/72324462/fd9219a0-7136-4087-9d4f-be06d8abc54e)
+```sql
+-- Traffic Source Trending
+/* It seems that gsearch nonbrand is fairly sensitive to bid changes, the company wants to maximize volume, but does not 
+   want to spend more on ads than they can afford
+   Tom will follow up with me shortly
+*/
+select min(date(created_at)) as week_start_date, 
+       count(distinct ws.website_session_id) as sessions
+from website_sessions ws
+where created_at < '2012-05-10'
+and ws.utm_source = 'gsearch'
+and utm_campaign = 'nonbrand'
+group by week(created_at)
+order by 1;
+```
 
 <br><br>
 ![image](https://github.com/Cahn-C/MySQL/assets/72324462/5cd609a4-467e-48ba-a402-2493a2b45a6c)
