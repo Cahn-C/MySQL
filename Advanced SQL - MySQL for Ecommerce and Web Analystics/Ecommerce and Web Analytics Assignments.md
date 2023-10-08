@@ -4,7 +4,9 @@
 
 ```sql
 -- Finding top Traffic Sources
--- "gsearch nonbrand" has the largest session volume, we will need to focus more on this campaign to gain more insight for potential optimization opportunities
+/* "gsearch nonbrand" has the largest session volume, we will need to focus more on this campaign to gain more insight for
+   potential optimization opportunities
+*/
 select utm_source, 
        utm_campaign, 
        http_referer, 
