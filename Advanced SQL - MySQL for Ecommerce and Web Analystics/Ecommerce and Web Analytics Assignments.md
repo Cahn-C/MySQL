@@ -79,7 +79,8 @@ order by 2;
 ![image](https://github.com/Cahn-C/MySQL/assets/72324462/c672a516-d351-4d31-867a-502a7405d3ba)
 
 <br>
-Traffic Source Segment Trending ____
+Traffic Source Segment Trending 
+____
 
 ```sql
 /* 
