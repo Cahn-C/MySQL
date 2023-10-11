@@ -22,3 +22,5 @@ CREATE TABLE publisher_spend (
 SELECT * FROM publishers;
 SELECT * FROM publisher_spend;
 ```
+
+Even though Tom specified that he only needed three of the columns in the email, I added the publisher_spend_id to the publisher_spend table because the publishers table already has a primary key of publisher_id, which means that the primary key should never repeat on multiple records in the publisher_spend table.
