@@ -21,4 +21,8 @@ SELECT * FROM courses;
 ```
 Results: <br>
 <img width="373" alt="image" src="https://github.com/Cahn-C/MySQL/assets/72324462/0aef1d15-4a2a-4082-b333-0d86d9dab2ec">
+<br><br>
+
+1) The primary key for course_rating is rating_id and the foreign key is course_id
+2) The tables are a one-to-many relationship because one table has of one primary and a foreign key while the other two tables just have a primary key
 
