@@ -1,7 +1,7 @@
 # Creating Schemas and Tables
 
 ```sql
-CREATE SCHEMA toms_marketing_stuff DEFAULT CHARACTER SET utf8mb4
+CREATE SCHEMA toms_marketing_stuff DEFAULT CHARSET utf8mb4
 
 USE toms_marketing_stuff;
 
