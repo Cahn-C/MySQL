@@ -16,6 +16,8 @@ UPDATE employees SET avg_customer_rating = 4.2 WHERE employee_id = 6;
 UPDATE employees SET avg_customer_rating = 5.0 WHERE employee_id = 7;
 UPDATE employees SET avg_customer_rating = 5.0 WHERE employee_id = 8;
 
+ALTER TABLE employees MODIFY COLUMN avg_customer_rating DECIMAL (4, 2);
+
 
 SELECT * FROM employees;
 ```
