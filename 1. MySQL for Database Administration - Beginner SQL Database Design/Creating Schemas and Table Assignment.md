@@ -12,10 +12,13 @@ CREATE TABLE publishers (
 );
 
 CREATE TABLE publisher_spend (
-	publisher_spend_id INT NOT NULL,
-	publisher_id INT NOT NULL,
+    publisher_spend_id INT NOT NULL,
+    publisher_id INT NOT NULL,
     month DATE NOT NULL,
     spend DECIMAL(10, 2) NOT NULL,
     PRIMARY KEY (publisher_spend_id)
 );
+
+SELECT * FROM publishers;
+SELECT * FROM publisher_spend;
 ```
