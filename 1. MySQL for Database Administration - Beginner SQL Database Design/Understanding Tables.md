@@ -13,16 +13,6 @@ SELECT * FROM course_ratings_summaries;
 ```
 Results: <br>
 <img width="248" alt="image" src="https://github.com/Cahn-C/MySQL/assets/72324462/275f1ef8-785a-4d27-aaa9-ade63181e593">
-<br><br>
-For the course ratings summaries table, I added the column course_ratings_summaries_id to the very beginning of the table, this is because the course_id was the foreign key whcih could cause duplicate data that can lead to an error.
-<br>
-```sql
-ALTER TABLE course_ratings_summaries ADD COLUMN course_ratings_summaries_id BIGINT(20) AUTO_INCREMENT FIRST,
-ADD CONSTRAINT PRIMARY KEY (course_ratings_summaries_id);
-```
-<br>
-<img width="365" alt="image" src="https://github.com/Cahn-C/MySQL/assets/72324462/0103618e-021c-44f5-95a7-b1ec9767a4ac">
-
 <br><br><br>
 
 
