@@ -65,6 +65,7 @@ SELECT * FROM course_ratings_summaries;
 SELECT * FROM course_ratings_normalized;
 SELECT * FROM courses;
 ```
+<br><br>
 
 # Data Model
 <img width="611" alt="image" src="https://github.com/Cahn-C/MySQL/assets/72324462/69ebb372-68fc-4d3f-bba9-eaa998447b10">
