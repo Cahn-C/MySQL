@@ -54,3 +54,5 @@ ALTER TABLE `midcourseproject`.`inventory` ADD PRIMARY KEY (`inventory_id`), ADD
 ALTER TABLE `midcourseproject`.`inventory` ADD CONSTRAINT `film_id` FOREIGN KEY (`film_id`) REFERENCES `midcourseproject`.`films` (`film_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE `midcourseproject`.`inventory` ADD CONSTRAINT `store_id` FOREIGN KEY (`store_id`) REFERENCES `midcourseproject`.`stores` (`store_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 ```
+
+Previously we had one table that was redundantly storing lots of information, espacially about the film titles and film description, which I was able to consolidate quite a bit, also I was able to just boil down just 2 records in the stores table instead of sorting 4500 of the data from the old table.
