@@ -1,4 +1,4 @@
-# Understanding primary keys and foreign keys
+# Primary Keys and Foreign Keys
 
 ```sql
 SELECT * FROM course_ratings;
@@ -26,3 +26,42 @@ Results: <br>
 1) The primary key for course_rating is rating_id and the foreign key is course_id
 2) The tables are a one-to-many relationship because one table has of one primary and a foreign key while the other two tables just have a primary key
 
+<br><br>
+
+# Data Normalization
+
+```sql
+USE onlinelearningschool;
+
+SELECT * FROM course_ratings_summaries;
+SELECT * FROM course_ratings;
+SELECT * FROM courses;
+
+
+ALTER TABLE course_ratings_summaries ADD COLUMN course_ratings_summaries_id BIGINT(20) AUTO_INCREMENT FIRST,
+ADD PRIMARY KEY (course_ratings_summaries_id);
+
+CREATE TABLE course_ratings_normalized
+SELECT rating_id,
+	   course_id,
+       star_rating
+FROM course_ratings;
+
+SELECT * FROM course_ratings_normalized;
+
+ALTER TABLE `onlinelearningschool`.`course_ratings_normalized` 
+ADD PRIMARY KEY (`rating_id`),
+ADD INDEX `course_id_idx` (`course_id` ASC) VISIBLE;
+;
+ALTER TABLE `onlinelearningschool`.`course_ratings_normalized` 
+ADD CONSTRAINT `course_id`
+  FOREIGN KEY (`course_id`)
+  REFERENCES `onlinelearningschool`.`courses` (`course_id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+SELECT * FROM course_ratings_summaries;
+SELECT * FROM course_ratings_normalized;
+SELECT * FROM courses;
+```
