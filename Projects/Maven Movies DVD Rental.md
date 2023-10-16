@@ -1,10 +1,16 @@
 # Maven Movies DVD Rental Project
 
+Ensure that I am using the correct database
 ```sql
 -- 
 USE midcourseproject;
+```
+<br>
 
+Check the records for the table that I will be working with
+```sql
 SELECT * FROM mavenmoviesmini.inventory_non_normalized;
+```
 
 /* 
   After careful review of the inventory_non_normalized, I've noticied that there is only 1 table that consists of multiple columns that 
