@@ -11,7 +11,9 @@ Check the records for the table that I will be working with
 ```sql
 SELECT * FROM mavenmoviesmini.inventory_non_normalized;
 ```
+<br>
 
+```sql
 /* 
   After careful review of the inventory_non_normalized, I've noticied that there is only 1 table that consists of multiple columns that 
   need to be in its own table, the current schema needs some work;
@@ -51,6 +53,7 @@ FROM mavenmoviesmini.inventory_non_normalized;
 SELECT * FROM inventory;
 SELECT * FROM films;
 SELECT * FROM stores;
+```
 
 
 ALTER TABLE inventory ADD PRIMARY KEY (invertory_id);
