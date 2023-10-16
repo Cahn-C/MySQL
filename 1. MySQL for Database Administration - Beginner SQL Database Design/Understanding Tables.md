@@ -43,7 +43,7 @@ ADD PRIMARY KEY (course_ratings_summaries_id);
 
 CREATE TABLE course_ratings_normalized
 SELECT rating_id,
-	   course_id,
+       course_id,
        star_rating
 FROM course_ratings;
 
