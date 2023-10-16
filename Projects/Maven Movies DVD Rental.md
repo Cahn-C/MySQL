@@ -2,7 +2,7 @@
 
 Ensure that I am using the correct database
 ```sql
--- 
+-- Connect to the database
 USE midcourseproject;
 ```
 <br>
