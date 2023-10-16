@@ -63,10 +63,8 @@ ALTER TABLE inventory ADD PRIMARY KEY (invertory_id);
 ALTER TABLE films ADD PRIMARY KEY (film_id);
 ALTER TABLE stores ADD PRIMARY KEY (store_id);
 ALTER TABLE `midcourseproject`.`inventory` ADD PRIMARY KEY (`inventory_id`), ADD INDEX `film_id_idx` (`film_id` ASC) VISIBLE;
-ALTER TABLE `midcourseproject`.`inventory` ADD CONSTRAINT `film_id` FOREIGN KEY (`film_id`)
-REFERENCES `midcourseproject`.`films` (`film_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE `midcourseproject`.`inventory` ADD CONSTRAINT `store_id` FOREIGN KEY (`store_id`) 
-REFERENCES `midcourseproject`.`stores` (`store_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `midcourseproject`.`inventory` ADD CONSTRAINT `film_id` FOREIGN KEY (`film_id`) REFERENCES `midcourseproject`.`films` (`film_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `midcourseproject`.`inventory` ADD CONSTRAINT `store_id` FOREIGN KEY (`store_id`)  REFERENCES `midcourseproject`.`stores` (`store_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 ```
 <br><br>
 <img width="607" alt="image" src="https://github.com/Cahn-C/MySQL/assets/72324462/e2d37291-3390-469d-9215-464aad6dcf83">
