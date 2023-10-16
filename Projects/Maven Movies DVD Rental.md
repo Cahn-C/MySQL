@@ -13,6 +13,7 @@ SELECT * FROM mavenmoviesmini.inventory_non_normalized;
 ```
 <br>
 
+I created 3 seperate tables for better normalization, this will help me understand the data that I am working with, and this will bring less errors when presenting the final results to the management team.
 ```sql
 /* 
   After careful review of the inventory_non_normalized, I've noticied that there is only 1 table that consists of multiple columns that 
