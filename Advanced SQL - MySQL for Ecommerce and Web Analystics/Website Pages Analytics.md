@@ -3,7 +3,8 @@
 ## Identifying Top Website Pages
 Morgan wants to find out more about the site by pulling the most-viewed website pages, ranks by session volume
 ```sql
-select pageview_url, count(distinct website_session_id) as sessions 
+select pageview_url,
+       count(distinct website_session_id) as sessions 
 from website_pageviews
 where created_at < '2012-06-09'
 group by pageview_url
@@ -19,12 +20,14 @@ Results:<br>
 Morgan wants to confirm where the users are landing first on the site
 ```sql
 CREATE TEMPORARY TABLE first_entry
-select website_session_id, min(website_pageview_id) as pageviews
+select website_session_id,
+       min(website_pageview_id) as pageviews
 from website_pageviews
 where created_at < '2012-06-12'
 group by website_session_id;
 
-select wp.pageview_url, count(distinct wp.website_pageview_id) as top_entry_pageview
+select wp.pageview_url,
+       count(distinct wp.website_pageview_id) as top_entry_pageview
 from first_entry fe
 left join website_pageviews wp
 on fe.pageviews = wp.website_pageview_id
