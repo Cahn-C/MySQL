@@ -7,9 +7,7 @@ Finding top Traffic Sources
 <hr>
 
 ```sql
-/* "gsearch nonbrand" has the largest session volume, we will need to focus more on this campaign to gain more insight for
-   potential optimization opportunities
-*/
+== Find a campaing that has the most potential to pulling more customers
 select utm_source, 
        utm_campaign, 
        http_referer, 
