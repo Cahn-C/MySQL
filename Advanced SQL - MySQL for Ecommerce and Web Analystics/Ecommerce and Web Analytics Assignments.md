@@ -7,7 +7,7 @@ Finding top Traffic Sources
 <hr>
 
 ```sql
-== Find a campaing that has the most potential to pulling more customers
+-- Find a campaing that has the most potential to pulling more customers
 select utm_source, 
        utm_campaign, 
        http_referer, 
