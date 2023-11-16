@@ -41,6 +41,8 @@ Results:<br>
 <br>
 
 ## Bounce Rate Analysis
+Morgan would like to see bounce rates for traffic landing on the homepage, she would like to see the number of sessions, number of bounced sessions and the percentage of sessions that bounced or the bounce rate.
+
 ```sql
 -- STEP 1: Find the first pageview for each relevant session
 -- STEP 2: Identify the landing page of each session
