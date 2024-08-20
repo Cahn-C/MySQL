@@ -8,35 +8,35 @@ Finding top Traffic Sources
 
 ```sql
 -- Find a campaing that has the most potential to pulling more customers
-select utm_source, 
+SELECT utm_source, 
        utm_campaign, 
        http_referer, 
-       count(distinct website_session_id) as sessions  
-from website_sessions
-where created_at < '2012-04-12'
-group by utm_source, utm_campaign, http_referer
-order by 4 desc;
+       COUNT(distinct website_sessiON_id) AS sessiONs  
+FROM website_sessiONs
+WHERE created_at < '2012-04-12'
+GROUP BY utm_source, utm_campaign, http_referer
+ORDER BY 4 desc;
 ```
 
 <br><br>
 ![image](https://github.com/Cahn-C/MySQL/assets/72324462/8b5b3e05-fc73-41b4-bc69-681525e727e4)
 
 <br>
-Traffic Conversion Rates
+Traffic conversion Rates
 <hr>
 
 ```sql
--- Find the conversion rate, if the conversion rate is below 4%, then the marketing team will need to perform a bid reduction. 
-select count(distinct ws.website_session_id) as sessions, 
-       count(distinct o.order_id) as orders,
-       count(distinct o.order_id) / count(distinct ws.website_session_id) as conversion_rate
-from website_sessions ws
-left join orders o
-on ws.website_session_id = o.website_session_id
-where ws.created_at < '2012-04-14'
-and ws.utm_source = 'gsearch'
-and ws.utm_campaign = 'nonbrand'
-and ws.http_referer = 'https://www.gsearch.com';
+-- Find the conversion rate, if the conversion rate is below 4%, THEN the marketing team will need to perform a bid reductiON. 
+SELECT COUNT(distinct ws.website_sessiON_id) AS sessiONs, 
+       COUNT(distinct o.order_id) AS orders,
+       COUNT(distinct o.order_id) / COUNT(distinct ws.website_sessiON_id) AS cONversiON_rate
+FROM website_sessiONs ws
+LEFT JOIN orders o
+ON ws.website_sessiON_id = o.website_sessiON_id
+WHERE ws.created_at < '2012-04-14'
+AND ws.utm_source = 'gsearch'
+AND ws.utm_campaign = 'nONbrAND'
+AND ws.http_referer = 'https://www.gsearch.com';
 ```
 
 <br><br>
@@ -48,17 +48,17 @@ Traffic Source Trending
 
 ```sql
 /* It seems that gsearch nonbrand is fairly sensitive to bid changes, the company wants to maximize volume, but does not 
-   want to spend more on ads than they can afford
-   Tom will follow up with me shortly
+   want to spend more ON ads than they can afford
+   Tom will follow up WITH me shortly
 */
-select min(date(created_at)) as week_start_date, 
-       count(distinct ws.website_session_id) as sessions
-from website_sessions ws
-where created_at < '2012-05-10'
-and ws.utm_source = 'gsearch'
-and utm_campaign = 'nonbrand'
-group by week(created_at)
-order by 1;
+SELECT MIN(date(created_at)) AS week_start_date, 
+       COUNT(distinct ws.website_sessiON_id) AS sessiONs
+FROM website_sessiONs ws
+WHERE created_at < '2012-05-10'
+AND ws.utm_source = 'gsearch'
+AND utm_campaign = 'nONbrAND'
+GROUP BY week(created_at)
+ORDER BY 1;
 ```
 
 <br><br>
@@ -70,20 +70,20 @@ Traffic Source Segment Trending
 
 ```sql
 /* 
-   Since desktop performs way better than mobile, Tom has decided to increase the company's bids on desktop
+   Since desktop performs way better than mobile, Tom has decided to increase the company's bids ON desktop
 */
-select device_type,
-       count(distinct ws.website_session_id) as sessions, 
-       count(distinct o.order_id) as orders,
-       count(distinct o.order_id) / count(distinct ws.website_session_id) as converstion_rate
-from website_sessions ws
-left join orders o
-on ws.website_session_id = o.website_session_id
-where ws.created_at < '2012-05-11'
-and utm_source = 'gsearch'
-and utm_campaign = 'nonbrand'
-group by device_type
-order by 2;
+SELECT device_type,
+       COUNT(distinct ws.website_sessiON_id) AS sessiONs, 
+       COUNT(distinct o.order_id) AS orders,
+       COUNT(distinct o.order_id) / COUNT(distinct ws.website_sessiON_id) AS cONverstiON_rate
+FROM website_sessiONs ws
+LEFT JOIN orders o
+ON ws.website_sessiON_id = o.website_sessiON_id
+WHERE ws.created_at < '2012-05-11'
+AND utm_source = 'gsearch'
+AND utm_campaign = 'nONbrAND'
+GROUP BY device_type
+ORDER BY 2;
 ```
 
 <br><br>
@@ -95,21 +95,21 @@ Traffic Source Segment Trending
 
 ```sql
 /* 
-   After the bid change made after May 13th 2012, there was a major increase on May 20th 2012 for desktop users, while 
+   After the bid change made after May 13th 2012, there was a major increase ON May 20th 2012 for desktop users, while 
    mobile
    seems to be a little flat.
 */
-with cte as (
-	select min(date(created_at)) as start_of_week,
-	       count(distinct case when device_type = 'desktop' then website_session_id else null end) as dektop_sessions,
-	       count(distinct case when device_type = 'mobile' then website_session_id else null end) as mobile_sessions
-	from website_sessions
-	where created_at < '2012-06-09'
-	and utm_source = 'gsearch'
-	and utm_campaign = 'nonbrand'
-	group by week(created_at)
+WITH cte AS (
+	SELECT MIN(date(created_at)) AS start_of_week,
+	       COUNT(distinct CASE WHEN device_type = 'desktop' THEN website_sessiON_id else null end) AS dektop_sessiONs,
+	       COUNT(distinct CASE WHEN device_type = 'mobile' THEN website_sessiON_id else null end) AS mobile_sessiONs
+	FROM website_sessiONs
+	WHERE created_at < '2012-06-09'
+	AND utm_source = 'gsearch'
+	AND utm_campaign = 'nONbrAND'
+	GROUP BY week(created_at)
 )
-select * from cte where start_of_week >= '2012-04-15';
+SELECT * FROM cte WHERE start_of_week >= '2012-04-15';
 ```
 
 
