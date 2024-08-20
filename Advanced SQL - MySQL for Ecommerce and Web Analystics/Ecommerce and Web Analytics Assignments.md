@@ -11,8 +11,8 @@ Finding top Traffic Sources
 SELECT utm_source, 
        utm_campaign, 
        http_referer, 
-       COUNT(distinct website_sessiON_id) AS sessiONs  
-FROM website_sessiONs
+       COUNT(distinct website_sessiON_id) AS sessions  
+FROM website_sessions
 WHERE created_at < '2012-04-12'
 GROUP BY utm_source, utm_campaign, http_referer
 ORDER BY 4 desc;
@@ -27,15 +27,15 @@ Traffic conversion Rates
 
 ```sql
 -- Find the conversion rate, if the conversion rate is below 4%, THEN the marketing team will need to perform a bid reductiON. 
-SELECT COUNT(distinct ws.website_sessiON_id) AS sessiONs, 
+SELECT COUNT(distinct ws.website_sessiON_id) AS sessions, 
        COUNT(distinct o.order_id) AS orders,
-       COUNT(distinct o.order_id) / COUNT(distinct ws.website_sessiON_id) AS cONversiON_rate
-FROM website_sessiONs ws
+       COUNT(distinct o.order_id) / COUNT(distinct ws.website_sessiON_id) AS conversion_trate
+FROM website_sessions ws
 LEFT JOIN orders o
 ON ws.website_sessiON_id = o.website_sessiON_id
 WHERE ws.created_at < '2012-04-14'
 AND ws.utm_source = 'gsearch'
-AND ws.utm_campaign = 'nONbrAND'
+AND ws.utm_campaign = 'nobrand'
 AND ws.http_referer = 'https://www.gsearch.com';
 ```
 
@@ -52,11 +52,11 @@ Traffic Source Trending
    Tom will follow up WITH me shortly
 */
 SELECT MIN(date(created_at)) AS week_start_date, 
-       COUNT(distinct ws.website_sessiON_id) AS sessiONs
-FROM website_sessiONs ws
+       COUNT(distinct ws.website_sessiON_id) AS sessions
+FROM website_sessions ws
 WHERE created_at < '2012-05-10'
 AND ws.utm_source = 'gsearch'
-AND utm_campaign = 'nONbrAND'
+AND utm_campaign = 'nobrand'
 GROUP BY week(created_at)
 ORDER BY 1;
 ```
@@ -73,15 +73,15 @@ Traffic Source Segment Trending
    Since desktop performs way better than mobile, Tom has decided to increase the company's bids ON desktop
 */
 SELECT device_type,
-       COUNT(distinct ws.website_sessiON_id) AS sessiONs, 
+       COUNT(distinct ws.website_sessiON_id) AS sessions, 
        COUNT(distinct o.order_id) AS orders,
-       COUNT(distinct o.order_id) / COUNT(distinct ws.website_sessiON_id) AS cONverstiON_rate
-FROM website_sessiONs ws
+       COUNT(distinct o.order_id) / COUNT(distinct ws.website_sessiON_id) AS conversion_rate
+FROM website_sessions ws
 LEFT JOIN orders o
 ON ws.website_sessiON_id = o.website_sessiON_id
 WHERE ws.created_at < '2012-05-11'
 AND utm_source = 'gsearch'
-AND utm_campaign = 'nONbrAND'
+AND utm_campaign = 'nobrand'
 GROUP BY device_type
 ORDER BY 2;
 ```
@@ -101,12 +101,12 @@ Traffic Source Segment Trending
 */
 WITH cte AS (
 	SELECT MIN(date(created_at)) AS start_of_week,
-	       COUNT(distinct CASE WHEN device_type = 'desktop' THEN website_sessiON_id else null end) AS dektop_sessiONs,
-	       COUNT(distinct CASE WHEN device_type = 'mobile' THEN website_sessiON_id else null end) AS mobile_sessiONs
-	FROM website_sessiONs
+	       COUNT(distinct CASE WHEN device_type = 'desktop' THEN website_sessiON_id else null end) AS dektop_sessions,
+	       COUNT(distinct CASE WHEN device_type = 'mobile' THEN website_sessiON_id else null end) AS mobile_sessions
+	FROM website_sessions
 	WHERE created_at < '2012-06-09'
 	AND utm_source = 'gsearch'
-	AND utm_campaign = 'nONbrAND'
+	AND utm_campaign = 'nobrand'
 	GROUP BY week(created_at)
 )
 SELECT * FROM cte WHERE start_of_week >= '2012-04-15';
